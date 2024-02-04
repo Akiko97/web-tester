@@ -4,16 +4,22 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-egui = "0.25.0"
+egui = { version = "0.25.0" }
 eframe = { version = "0.25.0", default-features = false, features = [
     "accesskit",     # Make egui comptaible with screen readers. NOTE: adds a lot of dependencies.
     "default_fonts", # Embed the default egui fonts.
     "glow",          # Use the glow rendering backend. Alternative: "wgpu".
     "persistence",   # Enable restoring app state when restarting the app.
 ] }
-
-# App persistence:
+egui_extras = { version = "0.25.0" }
+ehttp = { version = "0.4" }
+image = { version = "0.24", default-features = false, features = [
+    "jpeg",
+    "png",
+] }
+poll-promise = { version = "0.3", default-features = false }
 serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1" }
 
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
 env_logger = "0.11"
